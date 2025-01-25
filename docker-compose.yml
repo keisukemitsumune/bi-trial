@@ -7,7 +7,7 @@ services:
       dockerfile: mysql/Dockerfile
     volumes:
       - db_data:/var/lib/mysql:cached
-      - ./db_dump:/data/db_dump
+      - ./docker/mysql/init-data:/docker-entrypoint-initdb.d:cached
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: happybeer
