@@ -1,0 +1,29 @@
+services:
+  db:
+    platform: 'linux/amd64'
+    container_name: db
+    build:
+      context: ./docker
+      dockerfile: mysql/Dockerfile
+    volumes:
+      - db_data:/var/lib/mysql:cached
+      - ./db_dump:/data/db_dump
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: happybeer
+      MYSQL_DATABASE: bidb
+      MYSQL_USER: staff
+      MYSQL_PASSWORD: happybeer
+    ports:
+      - "33060:3306"
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    ports:
+      - 3000:3000
+    volumes:
+      - ./app/data:/mnt/data
+
+volumes:
+  db_data:
+    driver: local
