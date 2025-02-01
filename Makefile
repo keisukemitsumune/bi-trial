@@ -13,8 +13,11 @@ upb:
 down:
 		docker compose down --remove-orphans
 
-db:
-		docker container exec -it db bash
+bidb:
+		docker container exec -it bidb mysql -ustaff -p bidb
+
+mbdb:
+		docker container exec -it mbdb psql -U staff -d mbdb
 
 restore:
 		bash ./db_restore.sh
