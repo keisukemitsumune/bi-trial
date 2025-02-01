@@ -1,0 +1,2 @@
+DROP DATABASE bidb;
+CREATE DATABASE bidb;
