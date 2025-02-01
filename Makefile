@@ -15,3 +15,6 @@ down:
 
 db:
 		docker container exec -it db bash
+
+restore:
+		bash ./db_restore.sh
