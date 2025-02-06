@@ -8,6 +8,12 @@ resource "aws_security_group" "ec2" {
     cidr_blocks = var.allowed_ips
   }
   ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = var.allowed_ips
+  }
+  ingress {
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"

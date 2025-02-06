@@ -31,7 +31,7 @@ services:
     image: metabase/metabase:latest
     container_name: mb
     ports:
-      - 3000:3000
+      - 80:3000
     environment:
       - MB_DB_TYPE=postgres
       - MB_DB_DBNAME=mbdb
