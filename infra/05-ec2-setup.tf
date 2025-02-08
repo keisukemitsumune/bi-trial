@@ -17,7 +17,7 @@ resource "null_resource" "this" {
       "cd ~",
       "sudo git clone ${var.repository_uri}",
       "cd ${var.repository_dir}",
-      "sudo ${local.ec2.up_command}",
+      "sudo ${var.up_command}",
     ]
   }
 }

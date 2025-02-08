@@ -4,8 +4,8 @@ resource "aws_key_pair" "this" {
 }
 
 resource "aws_instance" "this" {
-  ami           = local.ec2.ami
-  instance_type = local.ec2.instance_type
+  ami           = var.ami
+  instance_type = var.instance_type
   subnet_id     = aws_subnet.public1.id
   vpc_security_group_ids = [
     aws_security_group.ec2.id,
