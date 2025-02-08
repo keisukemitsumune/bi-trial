@@ -38,3 +38,13 @@ resource "aws_route53_record" "bi" {
     evaluate_target_health = true
   }
 }
+
+resource "aws_route53_record" "static" {
+  zone_id = var.zone_id
+  name    = var.static-subdomain
+  type    = "CNAME"
+  ttl     = 60
+  records = [
+    var.static-cname
+  ]
+}

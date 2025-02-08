@@ -29,3 +29,10 @@ variable "ami" {
 variable "instance_type" {
   type = string
 }
+
+variable "static-subdomain" {
+  type = string
+}
+variable "static-cname" {
+  type = string
+}
