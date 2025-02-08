@@ -12,6 +12,13 @@ resource "aws_subnet" "public1" {
   map_public_ip_on_launch = true
 }
 
+resource "aws_subnet" "public2" {
+  vpc_id                  = aws_vpc.this.id
+  cidr_block              = "10.0.2.0/24"
+  availability_zone       = "${local.general.region}c"
+  map_public_ip_on_launch = true
+}
+
 resource "aws_internet_gateway" "this" {
   vpc_id = aws_vpc.this.id
 }
